@@ -10,20 +10,20 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject shot;
     public Transform shotSpawn;
-    public float fireRater;
+    public float fireRate;
 
     private float nextfire;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<Transform>();  
+        player = GetComponent<Transform> ();  
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        float h = Input.GetAxis("Horizontal");
+        float h = Input.GetAxis ("Horizontal");
 
         if (player.position.x < minBound && h < 0)
             h = 0;
@@ -34,9 +34,9 @@ public class PlayerScript : MonoBehaviour
     }
 
     void Update(){
-        if (Input.GetButton("Fire1") && Time.time > nextfire){
+        if(Input.GetButton("Fire1") && Time.time > nextfire){
             nextfire = Time.time + fireRate;
-            Initiate(shot, shotSpawn.position, shotSpawn.rotation);
+            Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
         }
 
         
