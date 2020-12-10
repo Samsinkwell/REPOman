@@ -13,11 +13,13 @@ public class PlayerScript : MonoBehaviour
     public float fireRate;
 
     private float nextfire;
+    private AudioSource shoot;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<Transform> ();  
+        player = GetComponent<Transform> ();
+        shoot = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class PlayerScript : MonoBehaviour
 
     void Update(){
         if(Input.GetButton("Fire1") && Time.time > nextfire){
+            shoot.Play();
             nextfire = Time.time + fireRate;
             Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
         }

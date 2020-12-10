@@ -25,7 +25,7 @@ public class BulletScript : MonoBehaviour {
         if(other.tag == "Enemy"){
             Destroy (other.gameObject);
             Destroy(gameObject);
-            //increase player score later
+            PlayerScore.playerScore += 10;
         }
         else if(other.tag == "Base")
             Destroy(gameObject);
